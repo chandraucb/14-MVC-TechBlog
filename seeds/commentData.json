@@ -1,0 +1,10 @@
+[
+    {
+      "comment": "Sample Seed Comments!",
+      "blogpost_id" : 1
+    },
+    {
+      "comment": "Very nice article!",
+      "blogpost_id": 2
+    }
+  ]
