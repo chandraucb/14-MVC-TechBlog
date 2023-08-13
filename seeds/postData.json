@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Object Relationship Model",
+    "content": "ORM has made defining object relationship complicated but it's organized in way programmer should understand",
+    "user_id" : 1
+  },
+  {
+    "title": "Modern Web Technologies",
+    "content": "A web app thats built on cybersecurity, database architecture, and more using nodesj, javascript, express!",
+    "user_id" : 2
+  }
+]
