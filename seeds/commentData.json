@@ -6,5 +6,9 @@
     {
       "comment": "Very nice article!",
       "blogpost_id": 2
+    },
+    {
+        "comment": "User ID check, Very nice article!",
+        "blogpost_id": 2
     }
   ]
