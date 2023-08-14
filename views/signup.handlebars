@@ -1,22 +1,42 @@
-<form id="createForm">
-    <div>
-        <label for="create_name">Name</label>
-        <input type="text" id="create_name">
-    </div>
-    <div>
-        <label for="create_username">Username</label>
-        <input type="text" id="create_username">
-    </div>
-    <div>
-        <label for="create_email">Email</label>
-        <input type="email" id="create_email">
-    </div>
-    <div>
-        <label for="create_password">Password</label>
-        <input type="password" id="create_password">
-    </div>
-    <button>
-        Create
+<div class="card">
+  <h3 class="card-header" style="padding-bottom: 1.5%;">Sign Up</h3>
+
+<form id="createForm" class="card-body" style="font-size:x-large;">
+  <div>
+    <label for="create_name">Name</label>
+    <input style="width: 100%;font-size:large;" type="text" id="create_name" />
+  </div>
+  <div>
+    <label for="create_username">Username</label>
+    <input
+      style="width: 100%;font-size:large;"
+      type="text"
+      id="create_username"
+    />
+  </div>
+  <div>
+    <label for="create_email">Email</label>
+    <input
+      style="width: 100%;font-size:large;"
+      type="email"
+      id="create_email"
+    />
+  </div>
+  <div>
+    <label for="create_password">Password</label>
+    <input
+      style="width: 100%;font-size:large;"
+      type="password"
+      id="create_password"
+    />
+  </div>
+  <div
+    style="width: 100%;font-size:x-large; padding:10px; display:flex; justify-content:space-around"
+  >
+    <button style="padding:10px;font-size:x-large;">
+      Create
     </button>
+  </div>
 </form>
+</div>
 <script src="/js/signup.js"></script>

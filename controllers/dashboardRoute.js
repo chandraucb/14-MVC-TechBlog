@@ -25,6 +25,12 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
+router.get('/create', withAuth, (req, res) => {
+    res.render("addpost");
+});
 
+router.get('/update', withAuth, (req, res) => {
+    res.render("updatepost");
+});
 
 module.exports = router;

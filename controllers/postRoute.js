@@ -28,6 +28,4 @@ router.get('/:id', withAuth, async (req, res) => {
     }
 });
 
-
-
 module.exports = router;

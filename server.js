@@ -36,6 +36,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, "public")));
 
+//prevents page caching on browser to protect from back button navigation into protected resource after logout
+app.use(function (req, res, next) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
+  next()
+});
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
