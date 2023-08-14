@@ -1,8 +1,10 @@
 const router = require("express").Router();
 
 const { BlogPost,User,Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/:id', async (req, res) => {
+
+router.get('/:id', withAuth, async (req, res) => {
     try {
         console.log("Request ID :: " + req.params.id)
         const posts = await BlogPost.findAll({

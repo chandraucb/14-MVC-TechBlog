@@ -1,11 +1,14 @@
 const router = require("express").Router();
 
 const { BlogPost,User,Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const posts = await BlogPost.findAll({
-            include: [{ model: User},{ model: Comment }],
+            where: {
+                user_id: req.session.user_id,
+              }
         });
 
         const plainPosts = posts.map((post) => {
