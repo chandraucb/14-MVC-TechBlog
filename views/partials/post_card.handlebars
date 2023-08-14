@@ -1,5 +1,5 @@
     <div class="card">
-        <h3 class="card-header"><div style="float: left;">{{title}}</div> <div style="float: right;">Posted by {{user.name}} on {{date_created}}</div></h3>
+        <h3 class="card-header"><div style="float: left;">{{title}}</div> <div style="float: right;font-weight:lighter">Posted by {{user.name}} on {{formatDate date_created 'MM/DD/YYYY'}}</div></h3>
         <p class="card-body">
             {{content}}
         </p>

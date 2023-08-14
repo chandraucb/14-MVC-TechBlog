@@ -1,14 +1,19 @@
-<form id="createPost">
+<div class="card">
+  <h3 class="card-header" style="padding-bottom: 1.5%;">Create New Post</h3>
+
+
+<form id="createPost" class="card-body" style="font-size:x-large;">
     <div>
         <label for="create_title">Title</label>
-        <input type="text" id="create_title">
+        <input style="width: 100%;font-size:large;" type="text" id="create_title">
     </div>
     <div>
         <label for="create_content">Content</label>
-        <input type="textarea" id="create_content">
+        <textarea style="width: 100%;font-size:large;" rows="5" id="create_content"></textarea>
     </div>
-    <button>
+    <button class="btn"> 
         Create
     </button>
 </form>
+</div>
 <script src="/js/createpost.js"></script>

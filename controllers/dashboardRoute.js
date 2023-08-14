@@ -29,8 +29,25 @@ router.get('/create', withAuth, (req, res) => {
     res.render("addpost");
 });
 
-router.get('/update', withAuth, (req, res) => {
-    res.render("updatepost");
+router.get('/update/:id', withAuth, async (req, res) => {
+    try {
+        console.log("Request ID :: " + req.params.id)
+        const post = await BlogPost.findOne({
+            where: {
+                id: req.params.id,
+            },
+            include: [{ model: User},{ model: Comment }],
+        });
+
+        console.log(post.dataValues)
+
+        res.render("updatepost" , { blogpost:post.dataValues });
+
+    } catch (e) {
+        console.error(e);
+        res.status(500).end();
+    }
 });
+    
 
 module.exports = router;

@@ -4,8 +4,8 @@ document.getElementById("updatePost").addEventListener("submit", (e) => {
     const title = document.getElementById("update_title").value.trim();
     const content = document.getElementById("update_content").value.trim();
     
-    fetch('/api/posts', {
-        method: 'POST',
+    fetch('/api/posts/' + id, {
+        method: 'PUT',
         headers: {
             'content-type': 'application/json',
         },
@@ -15,7 +15,7 @@ document.getElementById("updatePost").addEventListener("submit", (e) => {
           }),
     }).then((result) => {
         if (!result.ok) {
-            alert("Unable to create post");
+            alert("Unable to update post");
             return;
         }
 
@@ -24,3 +24,27 @@ document.getElementById("updatePost").addEventListener("submit", (e) => {
         });
     });
 }); 
+
+
+document.getElementById("deletePost").addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const title = document.getElementById("update_title").value.trim();
+    const content = document.getElementById("update_content").value.trim();
+    
+    fetch('/api/posts/' + id, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+        },
+    }).then((result) => {
+        if (!result.ok) {
+            alert("Unable to delete post");
+            return;
+        }
+
+        result.json().then(() => {
+            window.location = '/dashboard';
+        });
+    });
+});

@@ -1,5 +1,9 @@
 {{#each blogpost as |post|}}
-{{> post_card}}
+ <a href="/dashboard/update/{{id}}">
+<div class="card">
+    <h3 class="card-header" style="background-color:  #6f6866"><div style="float: left;">{{title}}</div> <div style="font-weight: normal;float: right;">Posted on {{formatDate date_created 'MM/DD/YYYY'}}</div></h3>
+</div>
+</a>
 {{/each}}
-<button id="create_post" type="button">New Post</button>
+<button class="btn" style="background-color:  #38302e;" id="create_post" type="button">New Post</button>
 <script src="/js/dashboard.js"></script>
