@@ -5,7 +5,7 @@ const expressHandlebars = require('express-handlebars');
 const helpers = require("./utils/helpers");
 const path = require("path");
 
-const thomasTheTank = expressHandlebars.create({
+const hbsengine = expressHandlebars.create({
   helpers,
 });
 
@@ -25,7 +25,7 @@ const sess = {
   })
 };
 
-app.engine('handlebars', thomasTheTank.engine);
+app.engine('handlebars', hbsengine.engine);
 app.set('view engine', 'handlebars');
 
 app.use(session(sess));

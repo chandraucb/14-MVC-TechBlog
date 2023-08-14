@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { BlogPost,Comment } = require('../../models');
+const { BlogPost,Comment,User } = require('../../models');
 
 /* get function to retrieve all blogpost
 */
@@ -7,7 +7,7 @@ const { BlogPost,Comment } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const postData = await BlogPost.findAll({ 
-      include: [{ model:Comment }],
+      include: [{ model: User },{ model: Comment }],
     });
 
     res.status(200).json(postData);
@@ -15,8 +15,6 @@ router.get('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
-
-
 
 /* post function to create a blogpost
 */
@@ -38,7 +36,6 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
-
 
 /* put function to update a blogpost
 */
@@ -72,14 +69,10 @@ router.put('/:id', async (req, res) => {
 router.get('/user', async (req, res) => {
   try {
 
-    console.log ("Logged in user" + req.session.user_id)
-
     if (!req.session.logged_in) {
       res.status(401).json("Unauthorized get!");
       return
     }
-
-    console.log ("Logged in user" + req.session.user_id)
 
     const postData = await BlogPost.findAll({
       where: {
@@ -123,12 +116,17 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
 /* delete function to remove a blogpost
 */
 
 router.delete('/:id', async (req, res) => {
   try {
+
+    if (!req.session.logged_in) {
+      res.status(401).json("Unauthorized delete!");
+      return
+    }
+
     const postData = await BlogPost.destroy({
       where: {
         id: req.params.id,
