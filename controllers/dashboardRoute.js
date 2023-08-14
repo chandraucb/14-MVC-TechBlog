@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
             return post.get({ plain: true });
         });
 
-        res.render('home', {
+        res.render('dashboard', {
             blogpost: plainPosts,
             logged_in: req.session.logged_in,
         });
@@ -21,7 +21,6 @@ router.get('/', async (req, res) => {
         res.status(500).end();
     }
 });
-
 
 
 

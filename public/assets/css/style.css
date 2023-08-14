@@ -123,8 +123,13 @@ p {
   margin-right: 50px;
 }
 
-a {
+.hero a {
   color: var(--primary);
+  text-decoration: none;
+}
+
+a { 
+  color: var(--dark);
   text-decoration: none;
 }
 

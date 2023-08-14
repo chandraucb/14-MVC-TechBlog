@@ -2,9 +2,13 @@ const router = require("express").Router();
 
 const { BlogPost,User,Comment } = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
+        console.log("Request ID :: " + req.params.id)
         const posts = await BlogPost.findAll({
+            where: {
+                id: req.params.id,
+            },
             include: [{ model: User},{ model: Comment }],
         });
 
@@ -12,7 +16,7 @@ router.get('/', async (req, res) => {
             return post.get({ plain: true });
         });
 
-        res.render('home', {
+        res.render('post', {
             blogpost: plainPosts,
             logged_in: req.session.logged_in,
         });
@@ -21,7 +25,6 @@ router.get('/', async (req, res) => {
         res.status(500).end();
     }
 });
-
 
 
 

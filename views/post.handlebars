@@ -1,1 +1,11 @@
-{{> post_card}}
+{{#each blogpost as |post|}}
+      {{> post_card}}
+       <div class="card">
+      {{#each comments as |cmnt|}}
+
+        <p class="card-body">{{comment}}</p>
+
+      {{/each}}
+      </div>
+      
+{{/each}}

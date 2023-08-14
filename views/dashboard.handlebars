@@ -1,0 +1,8 @@
+{{#each blogpost as |post|}}
+    <div class="card">
+        <h3 class="card-header"><div style="float: left;">Dashboard {{title}}</div> <div style="float: right;">Posted by {{user.name}} on {{date_created}}</div></h3>
+        <p class="card-body">
+            {{content}}
+        </p>
+      </div>
+{{/each}}

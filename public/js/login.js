@@ -1,19 +1,21 @@
-document.getElementById("createForm").addEventListener("submit", (e) => {
+document.getElementById('signup').addEventListener("click", (e) => {
+    window.location = '/user/signup'
+})
+
+document.getElementById("loginForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("create_username").value.trim();
-    const password = document.getElementById("create_password").value.trim();
-    const email = document.getElementById("create_email").value.trim();
+    const name = document.getElementById("login_username").value.trim();
+    const password = document.getElementById("login_password").value.trim();
 
-    fetch('/api/users', {
+    fetch('/api/users/login', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
         },
         body: JSON.stringify({
-            name,
-            password,
-            email,
+            "username" : name,
+            "password" : password
         }),
     }).then((result) => {
         if (!result.ok) {
