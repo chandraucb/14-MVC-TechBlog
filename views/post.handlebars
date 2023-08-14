@@ -1,11 +1,13 @@
 {{#each blogpost as |post|}}
       {{> post_card}}
-       <div class="card">
       {{#each comments as |cmnt|}}
-
+        <div class="card">
+         <h3 class="card-header"></h3>
         <p class="card-body">{{comment}}</p>
-
+        </div>
       {{/each}}
-      </div>
+
+      <button id="addcomment" type="button">Add Comment</button>
+      <div id="newcomment" style="display:none;"></div>
       
 {{/each}}
