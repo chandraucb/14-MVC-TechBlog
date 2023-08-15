@@ -26,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/create', withAuth, (req, res) => {
-    res.render("addpost");
+    res.render("addpost",{logged_in: req.session.logged_in});
 });
 
 router.get('/update/:id', withAuth, async (req, res) => {
@@ -41,7 +41,9 @@ router.get('/update/:id', withAuth, async (req, res) => {
 
         console.log(post.dataValues)
 
-        res.render("updatepost" , { blogpost:post.dataValues });
+        res.render("updatepost" , { 
+            blogpost:post.dataValues , 
+            logged_in: req.session.logged_in,});
 
     } catch (e) {
         console.error(e);

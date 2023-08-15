@@ -3,11 +3,18 @@
       {{#each comments as |cmnt|}}
         <div class="card">
          <h3 class="card-header"></h3>
-        <p class="card-body">{{comment}}</p>
+        <p class="card-body">{{comment}}<br/>Created by {{user.name}} on {{formatDate date_created 'MM/DD/YYYY'}}</p>
         </div>
       {{/each}}
 
-      <button id="addcomment" type="button">Add Comment</button>
-      <div id="newcomment" style="display:none;"></div>
-      
+      <script> let blogpost_id = {{post.id}}</script>
+
+      <div id="newcomment">
+        <textarea style="width:100%;" id="newcommenttext" rows="5"></textarea>
+        <button id="addcomment" class="btn" type="button">Add Comment</button>
+      </div>
+
 {{/each}}
+
+
+<script src="/js/addcomment.js"></script>

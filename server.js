@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3001;
 
 const sessionObj = {
   secret: 'One super secret key',
-  cookie: {},
+  cookie: {maxAge : 60000},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

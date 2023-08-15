@@ -11,7 +11,7 @@ router.get('/:id', withAuth, async (req, res) => {
             where: {
                 id: req.params.id,
             },
-            include: [{ model: User},{ model: Comment }],
+            include: [{ all: true, nested: true }],
         });
 
         const plainPosts = posts.map((post) => {

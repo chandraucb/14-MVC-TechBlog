@@ -1,7 +1,3 @@
-document.getElementById('signup').addEventListener("click", (e) => {
-    window.location = '/user/signup'
-})
-
 document.getElementById("loginForm").addEventListener("submit", (e) => {
     e.preventDefault();
 

@@ -20,12 +20,16 @@
             <li>
                 <a href="/dashboard">Dashboard</a>
             </li>
+            {{#unless logged_in}}
             <li>
                 <a href="/user/login">Login</a>
             </li>
+            {{/unless}}
+            {{#if logged_in}}
             <li>
                 <a href="/user/logout">Logout</a>
             </li>
+            {{/if}}
         </ul>
     </nav>
     <h1 class="app-title"> The Tech Blog </h1>
